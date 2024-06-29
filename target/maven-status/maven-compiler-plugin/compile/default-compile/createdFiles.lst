@@ -206,6 +206,7 @@ me\frep\vulcan\spigot\check\impl\combat\aim\AimP.class
 me\frep\vulcan\spigot\check\impl\player\badpackets\BadPackets5.class
 me\frep\vulcan\spigot\check\impl\player\invalid\InvalidD.class
 me\frep\vulcan\spigot\bukkit\Metrics$DrilldownPie.class
+me\frep\vulcan\spigot\check\impl\combat\killaura\KillAuraU.class
 me\frep\vulcan\spigot\check\impl\movement\entityflight\EntityFlightA.class
 me\frep\vulcan\spigot\id\ID.class
 me\frep\vulcan\spigot\util\type\Observable.class

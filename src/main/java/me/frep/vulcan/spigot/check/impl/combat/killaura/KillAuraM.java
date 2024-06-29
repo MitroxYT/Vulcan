@@ -5,7 +5,9 @@ import io.github.retrooper.packetevents.packetwrappers.play.in.useentity.Wrapped
 import me.frep.vulcan.spigot.check.AbstractCheck;
 import me.frep.vulcan.spigot.check.api.CheckInfo;
 import me.frep.vulcan.spigot.data.PlayerData;
+import me.frep.vulcan.spigot.exempt.type.ExemptType;
 import me.frep.vulcan.spigot.packet.Packet;
+import me.frep.vulcan.spigot.util.ServerUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -35,6 +37,9 @@ public class KillAuraM extends AbstractCheck {
     @Override
     public void handle(final Packet packet) {
         if (packet.isUseEntity()) {
+            if(ServerUtil.isLowerThan1_13()) {
+                    return;
+            }
             final WrappedPacketInUseEntity wrapper = this.data.getUseEntityWrapper();
             Player player = data.getPlayer();
 
@@ -50,7 +55,7 @@ public class KillAuraM extends AbstractCheck {
                     if (target != null && target.getType() == EntityType.PLAYER) {
                         if (this.increaseBuffer() > this.MAX_BUFFER) {
                             this.fail("range=" + attackData.attackCount);
-                            attackData.resetAttackCount(); // Reset attack count after detection
+                            attackData.resetAttackCount();
                         }
                     } else {
                         this.decayBuffer();

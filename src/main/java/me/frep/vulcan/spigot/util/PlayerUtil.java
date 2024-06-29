@@ -1,5 +1,8 @@
 package me.frep.vulcan.spigot.util;
 
+import io.github.retrooper.packetevents.packetwrappers.NMSPacket;
+import io.github.retrooper.packetevents.packetwrappers.play.in.useentity.WrappedPacketInUseEntity;
+import io.github.retrooper.packetevents.packetwrappers.play.in.useitem.WrappedPacketInUseItem;
 import org.bukkit.World;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.event.player.PlayerTeleportEvent;
@@ -434,7 +437,10 @@ public final class PlayerUtil
         final int random = ThreadLocalRandom.current().nextInt(8);
         sendPacket(player, new WrappedPacketOutHeldItemSlot(random));
     }
-    
+
+    public static void blockdmg(final Player player, Player pl) {
+        //sendPacket(player, new WrappedPacketInUseItem(1L));
+    }
     public static float getBaseSpeed(final PlayerData data, final float base) {
         final float speed = base + (data.getActionProcessor().getSpeedAmplifier() * 0.0675f + (data.getPositionProcessor().getWalkSpeed() - 0.2f) * 3.5f);
         if (speed < base) {

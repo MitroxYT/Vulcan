@@ -24,13 +24,10 @@ public class BadPacketsR extends AbstractCheck
             final long delay = System.currentTimeMillis() - this.lastFlying;
             final boolean exempt = this.isExempt(ExemptType.CREATIVE, ExemptType.SPECTATOR);
             if (this.sent && !exempt) {
-                if (delay > 40L && delay < 100L) {
-                    if (this.increaseBuffer() > this.MAX_BUFFER) {
+                if (delay > 25L && delay < 120L) {
+                    //if (this.increaseBuffer() > this.MAX_BUFFER) {
                         this.fail("delay=" + delay);
-                    }
-                }
-                else {
-                    this.decayBuffer();
+                    //}
                 }
                 this.sent = false;
             }

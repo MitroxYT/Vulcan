@@ -15,17 +15,19 @@ public class BlockMove implements Listener {
 
     @EventHandler
     public void OnMove(EntityDamageByEntityEvent e) {
-        Player pl = (Player) e.getDamager();
-        UUID dameger = pl.getUniqueId();
-        if (Flag.containsKey(dameger)) {
-            //e.setCancelled(true);
-            e.setDamage(1);
-            //pl.sendMessage("заблокал урон от детекта киллауры");
-            if (++tiks >= 7) {
-                Flag.remove(dameger);
-                tiks=0;
-            }
 
+        Player pl = (Player) e.getDamager();
+        UUID damegerUUID = pl.getUniqueId();
+
+        if (!(pl instanceof Player)) return;
+
+        else if (Flag.containsKey(damegerUUID)) {
+            e.setDamage(1);
+            if (++tiks >= 7) {
+                Flag.remove(damegerUUID);
+                tiks = 0;
+            }
         }
-        }
+    }
 }
+

@@ -8,7 +8,6 @@ import me.frep.vulcan.spigot.exempt.type.ExemptType;
 import me.frep.vulcan.spigot.packet.Packet;
 @CheckInfo(name = "FreeCam", type = 'A', complexType = "Interact", experimental = false, description = "Invalid interact.")
 public class FreeCamA extends AbstractCheck {
-    private int tiks;
     private int streak;
     public FreeCamA(PlayerData data) {
         super(data);
@@ -22,7 +21,7 @@ public class FreeCamA extends AbstractCheck {
                 this.streak = 0;
                 return;
             }
-            final boolean exempt = this.isExempt(ExemptType.SERVER_VERSION, ExemptType.CLIENT_VERSION, ExemptType.JOINED);
+            final boolean exempt = this.isExempt(ExemptType.JOINED);
             if (++this.streak > 10 && !exempt) {
                 this.fail("streak=" + this.streak);
             }

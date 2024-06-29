@@ -4,6 +4,7 @@ import me.frep.vulcan.spigot.util.type.Pair;
 import me.frep.vulcan.spigot.config.Config;
 import me.frep.vulcan.spigot.exempt.type.ExemptType;
 import org.bukkit.Location;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.util.Vector;
 import me.frep.vulcan.spigot.util.MathUtil;
 import me.frep.vulcan.spigot.Vulcan;
@@ -26,6 +27,7 @@ public class HitboxA extends AbstractCheck
     @Override
     public void handle(final Packet packet) {
         if (packet.isUseEntity()) {
+            final PlayerData targetData = Vulcan.INSTANCE.getPlayerDataManager().getPlayerData(this.data.getCombatProcessor().getTrackedPlayer());
             final WrappedPacketInUseEntity wrapper = this.data.getUseEntityWrapper();
             if (wrapper.getAction() != WrappedPacketInUseEntity.EntityUseAction.ATTACK || !(wrapper.getEntity() instanceof Player)) {
                 return;
@@ -39,7 +41,7 @@ public class HitboxA extends AbstractCheck
                 final double x = this.data.getPositionProcessor().getX();
                 final double z = this.data.getPositionProcessor().getZ();
                 final Vector origin = new Vector(x, 0.0, z);
-                final double angle = this.data.getCombatProcessor().getTargetLocations().stream().filter(pair -> Math.abs(ticks - pair.getY() - pingTicks) < 5).mapToDouble(pair -> {
+                final double angle = this.data.getCombatProcessor().getTargetLocations().stream().filter(pair -> Math.abs(ticks - pair.getY() - pingTicks) < 7).mapToDouble(pair -> {
                     final Vector targetLocation = pair.getX().toVector().setY(0.0);
                     final Vector direction = targetLocation.clone().subtract(origin);
                     final Vector target = this.getDirection(this.data.getRotationProcessor().getYaw(), this.data.getRotationProcessor().getPitch()).setY(0.0);

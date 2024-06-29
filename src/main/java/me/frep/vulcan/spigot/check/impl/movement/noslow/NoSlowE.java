@@ -35,7 +35,7 @@ public class NoSlowE extends AbstractCheck
             if (action) maxSpeed = 4.0;
             final boolean exempt = this.isExempt(ExemptType.JOINED, ExemptType.ILLEGAL_BLOCK, ExemptType.RIPTIDE, ExemptType.SHULKER, ExemptType.CHORUS_FRUIT, ExemptType.GLIDING, ExemptType.FLIGHT, ExemptType.CREATIVE, ExemptType.VEHICLE, ExemptType.SHULKER_BOX, ExemptType.CHUNK, ExemptType.FISHING_ROD, ExemptType.DOLPHINS_GRACE, ExemptType.ENDER_PEARL, ExemptType.TELEPORT, ExemptType.WORLD_CHANGE, ExemptType.ELYTRA, ExemptType.FROZEN, ExemptType.DEATH, ExemptType.SLEEPING, ExemptType.BOAT, ExemptType.SPECTATOR, ExemptType.ATTRIBUTE_MODIFIER, ExemptType.ANVIL, ExemptType.FULLY_STUCK, ExemptType.PARTIALLY_STUCK, ExemptType.CANCELLED_MOVE, ExemptType.ENTITY_CRAM_FIX);
             final double difference = deltaXZ - maxSpeed;
-            final boolean invalid = deltaXZ >= 4.0f;  // Проверка на превышение 4.0
+            final boolean invalid = deltaXZ >= 4.0;  // Проверка на превышение 4.0
             if (invalid && !exempt) {
                 this.fail("speed=" + deltaXZ + " max=" + maxSpeed + " diff=" + difference + " ticks=" + airTicks + " deltaY=" + deltaY);
             }

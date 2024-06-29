@@ -1390,7 +1390,7 @@ public class PositionProcessor
         Bukkit.getScheduler().runTask(Vulcan.INSTANCE.getPlugin(), () -> this.data.getPlayer().teleport(new Location(this.world, this.setbackX, this.setbackY, this.setbackZ, this.data.getRotationProcessor().getYaw(), this.data.getRotationProcessor().getPitch()), PlayerTeleportEvent.TeleportCause.UNKNOWN));
         Bukkit.getScheduler().runTask(Vulcan.INSTANCE.getPlugin(), () -> this.data.getPlayer().teleport(new Location(this.world, this.data.getPositionProcessor().getX(), this.setbackY, this.data.getPositionProcessor().getZ(), this.data.getRotationProcessor().getYaw(), this.data.getRotationProcessor().getPitch()), PlayerTeleportEvent.TeleportCause.UNKNOWN));
         Bukkit.getScheduler().runTask(Vulcan.INSTANCE.getPlugin(), () -> this.data.getPlayer().teleport(new Location(this.world, this.data.getPositionProcessor().getX(), this.setbackY, this.data.getPositionProcessor().getZ(), this.data.getRotationProcessor().getYaw(), this.data.getRotationProcessor().getPitch()), PlayerTeleportEvent.TeleportCause.UNKNOWN));
-        UUID g = data.getPlayer().getUniqueId();
+
     }
     public void killaurasetback() {
         this.sinceSetbackTicks = 0;

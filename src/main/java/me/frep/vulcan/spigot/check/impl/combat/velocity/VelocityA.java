@@ -40,6 +40,8 @@ public class VelocityA extends AbstractCheck
                     minRatio -= 0.1;
                 }
                 if (ratio < minRatio && velocityY > 0.0 && !exempt) {
+                    data.getPositionProcessor().Setbackandblock();
+                    data.getPositionProcessor().Setbackandblock();
                     if (this.increaseBuffer() > this.MAX_BUFFER) {
                         this.fail("tick=1 percent=" + ratio * 100.0 + "% deltaY=" + deltaY + " velocity=" + velocityY);
                         data.getPositionProcessor().Setbackandblock();

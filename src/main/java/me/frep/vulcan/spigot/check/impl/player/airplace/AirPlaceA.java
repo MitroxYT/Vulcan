@@ -8,7 +8,7 @@ import me.frep.vulcan.spigot.data.PlayerData;
 import me.frep.vulcan.spigot.check.api.CheckInfo;
 import me.frep.vulcan.spigot.check.AbstractCheck;
 
-@CheckInfo(name = "Air Place", type = 'A', complexType = "Invalid", description = "Invalid block placement.", experimental = true)
+@CheckInfo(name = "Air Place", type = 'A', complexType = "Invalid", description = "Invalid block placement.")
 public class AirPlaceA extends AbstractCheck
 {
     public AirPlaceA(final PlayerData data) {

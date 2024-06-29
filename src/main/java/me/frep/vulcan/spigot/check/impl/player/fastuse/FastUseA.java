@@ -33,6 +33,7 @@ public class FastUseA extends AbstractCheck
             final boolean exempt = this.isExempt(ExemptType.PICKED_UP_ITEM);
             if (invalid && !exempt) {
                 this.fail("delay=" + delay + " item=" + this.data.getPlayer().getItemInHand().getType() + " delay=" + flyingDelay);
+                event.setCancelled(true);
             }
         }
     }

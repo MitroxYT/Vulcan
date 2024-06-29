@@ -133,7 +133,7 @@ public enum Vulcan
         this.getPlugin().saveDefaultConfig();
         Config.initialize();
         Config.updateConfig();
-        this.log(logoui);
+        this.log("Kracked by NUllDEV");
         Stats.initialize();
         CheckManager.setup();
         this.log("Server Version: " + ServerUtil.getServerVersion().toString().replaceAll("_", ".").replaceAll("v", "").replaceFirst(".", "") + " detected!");
@@ -223,7 +223,7 @@ public enum Vulcan
             Bukkit.getPluginManager().registerEvents(new EventProcessor1_13(), plugin);
         }
         if (ServerUtil.isHigherThan1_16()) {
-            Bukkit.getPluginManager().registerEvents(new BlockMove(), plugin);
+            //Bukkit.getPluginManager().registerEvents(new BlockMove(), plugin);
         }
         System.setProperty("com.viaversion.handlePingsAsInvAcknowledgements", "true");
         PacketEvents.get().registerListener(new NetworkManager(PacketEventPriority.LOWEST));
@@ -262,7 +262,7 @@ public enum Vulcan
     }
     
     public void log(final String string) {
-        Bukkit.getLogger().log(Level.INFO, "[Vulcan RECODED] " + string);
+        Bukkit.getLogger().log(Level.INFO, "[VulcanAC] " + string);
     }
     
     public DiscordHelper getDiscordHelper() {

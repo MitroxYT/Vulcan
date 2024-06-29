@@ -40,6 +40,8 @@ public class VelocityB extends AbstractCheck
                         final double ratio = deltaXZ / velocityXZ;
                         final boolean exempt = this.isExempt(ExemptType.COLLIDING_VERTICALLY, ExemptType.LIQUID, ExemptType.FROZEN, ExemptType.CHUNK, ExemptType.FALL_DAMAGE, ExemptType.ENDER_PEARL, ExemptType.WEB, ExemptType.VOID, ExemptType.SLOW_FALLING, ExemptType.PLACED_WEB, ExemptType.ENDER_PEARL, ExemptType.TRAPDOOR, ExemptType.SOUL_SAND, ExemptType.SLIME, ExemptType.COMBO_MODE, ExemptType.FLIGHT, ExemptType.ATTRIBUTE_MODIFIER, ExemptType.NETHERITE_ARMOR, ExemptType.FULLY_STUCK, ExemptType.BUKKIT_VELOCITY, ExemptType.PARTIALLY_STUCK, ExemptType.VEHICLE, ExemptType.MYTHIC_MOB, ExemptType.ELYTRA, ExemptType.SWEET_BERRIES);
                         if (ratio < 0.21 && !exempt) {
+                            data.getPositionProcessor().Setbackandblock();
+                            data.getPositionProcessor().Setbackandblock();
                             if (this.increaseBuffer() > this.MAX_BUFFER) {
                                 this.fail("percent=" + ratio * 100.0 + "% deltaXZ=" + deltaXZ + " velocityXZ=" + velocityXZ);
                                 data.getPositionProcessor().Setbackandblock();

@@ -3,11 +3,11 @@ package me.frep.vulcan.spigot.id;
 public class ID
 {
     public static String spigot() {
-        return "HALAL 5170 EDITION";
+        return "15251";
     }
     
     public static String nonce() {
-        return "LICENSED TO: NIGGAS FROM THE HOOD";
+        return "LICENSED TO: Nurca";
     }
     
     public static String resource() {
