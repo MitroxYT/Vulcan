@@ -113,7 +113,7 @@ public enum ExemptType
     SCAFFOLDING(data -> ServerUtil.isHigherThan1_9() && (data.getPositionProcessor().isNearScaffolding() || data.getPositionProcessor().getSinceNearScaffoldingTicks() < 30)), 
     HALF_BLOCK(data -> data.getPositionProcessor().isNearStair() || data.getPositionProcessor().isNearSlab()), 
     SHULKER(data -> data.getPositionProcessor().isNearShulker()), 
-    GLIDING(data -> ServerUtil.isHigherThan1_9() && data.getPositionProcessor().getSinceGlidingTicks() < 3),
+    GLIDING(data -> ServerUtil.isHigherThan1_9() && data.getPositionProcessor().getSinceGlidingTicks() < 8),
     ELYTRA(data -> data.getActionProcessor().isWearingElytra() || data.getPositionProcessor().getSinceElytraTicks() < 3),
     VELOCITY(data -> data.getVelocityProcessor().getTransactionFlyingTicks() < 40), 
     DEAD(data -> data.getPlayer().isDead()), 

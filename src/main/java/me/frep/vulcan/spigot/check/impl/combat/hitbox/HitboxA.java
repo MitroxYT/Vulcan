@@ -27,7 +27,7 @@ public class HitboxA extends AbstractCheck
     @Override
     public void handle(final Packet packet) {
         if (packet.isUseEntity()) {
-            final PlayerData targetData = Vulcan.INSTANCE.getPlayerDataManager().getPlayerData(this.data.getCombatProcessor().getTrackedPlayer());
+            //final PlayerData targetData = Vulcan.INSTANCE.getPlayerDataManager().getPlayerData(this.data.getCombatProcessor().getTrackedPlayer());
             final WrappedPacketInUseEntity wrapper = this.data.getUseEntityWrapper();
             if (wrapper.getAction() != WrappedPacketInUseEntity.EntityUseAction.ATTACK || !(wrapper.getEntity() instanceof Player)) {
                 return;

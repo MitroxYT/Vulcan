@@ -167,7 +167,7 @@ public class SpeedC extends AbstractCheck
             else if (this.data.getActionProcessor().getSinceCrystalDamageTicks() > 5 && this.data.getActionProcessor().getSinceCrystalDamageTicks() < 25) {
                 maxSpeed += 0.5;
             }
-            final boolean exempt = this.isExempt(ExemptType.JOINED, ExemptType.ILLEGAL_BLOCK, ExemptType.RIPTIDE, ExemptType.SHULKER, ExemptType.CHORUS_FRUIT, ExemptType.GLIDING, ExemptType.FLIGHT, ExemptType.CREATIVE, ExemptType.VEHICLE, ExemptType.SHULKER_BOX, ExemptType.CHUNK, ExemptType.FISHING_ROD, ExemptType.DOLPHINS_GRACE, ExemptType.ENDER_PEARL, ExemptType.TELEPORT, ExemptType.WORLD_CHANGE, ExemptType.ELYTRA, ExemptType.FROZEN, ExemptType.DEATH, ExemptType.SLEEPING, ExemptType.BOAT, ExemptType.SPECTATOR, ExemptType.ATTRIBUTE_MODIFIER, ExemptType.ANVIL, ExemptType.FULLY_STUCK, ExemptType.PARTIALLY_STUCK, ExemptType.CANCELLED_MOVE, ExemptType.ENTITY_CRAM_FIX);
+            final boolean exempt = this.isExempt(ExemptType.JOINED, ExemptType.ILLEGAL_BLOCK, ExemptType.RIPTIDE, ExemptType.SHULKER, ExemptType.CHORUS_FRUIT, ExemptType.GLIDING, ExemptType.FLIGHT, ExemptType.CREATIVE, ExemptType.VEHICLE, ExemptType.SHULKER_BOX, ExemptType.CHUNK, ExemptType.FISHING_ROD, ExemptType.DOLPHINS_GRACE, ExemptType.ENDER_PEARL, ExemptType.TELEPORT, ExemptType.WORLD_CHANGE,  ExemptType.FROZEN, ExemptType.DEATH, ExemptType.SLEEPING, ExemptType.BOAT, ExemptType.SPECTATOR, ExemptType.ATTRIBUTE_MODIFIER, ExemptType.ANVIL, ExemptType.FULLY_STUCK, ExemptType.PARTIALLY_STUCK, ExemptType.CANCELLED_MOVE, ExemptType.ENTITY_CRAM_FIX);
             final double difference = deltaXZ - maxSpeed;
             final boolean invalid = airTicks > 1 && difference > Config.SPEED_C_MIN_DIFFERENCE;
             if (invalid && !exempt) {

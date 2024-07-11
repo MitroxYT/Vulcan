@@ -1,6 +1,5 @@
 package me.frep.vulcan.spigot.check.impl.movement.wallclimb;
 
-import java.util.Iterator;
 import me.frep.vulcan.spigot.exempt.type.ExemptType;
 import org.bukkit.Material;
 import me.frep.vulcan.spigot.util.BlockUtil;
@@ -68,8 +67,7 @@ public class WallClimbA extends AbstractCheck
                 if (invalid && !exempt && collidingVertically) {
                     if (this.increaseBuffer() > this.MAX_BUFFER) {
                         this.fail("deltaY=" + deltaY + " ticks=" + this.ticks);
-                        //data.getPositionProcessor().Setbackandblock();
-                        //data.getPositionProcessor().monentsetback();
+
                     }
                 }
                 else {

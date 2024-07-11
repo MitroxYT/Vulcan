@@ -34,7 +34,7 @@ public class VelocityA extends AbstractCheck
             final double ratio = deltaY / velocityY;
             final boolean poison = this.data.getActionProcessor().getSincePoisonDamageTicks() < 10;
             if (ticksSinceVelocity == 1 && !poison) {
-                final boolean exempt = this.isExempt(ExemptType.COLLIDING_VERTICALLY, ExemptType.LIQUID, ExemptType.FROZEN, ExemptType.CHUNK, ExemptType.ENDER_PEARL, ExemptType.WEB, ExemptType.VOID, ExemptType.SLOW_FALLING, ExemptType.ENDER_PEARL, ExemptType.TRAPDOOR, ExemptType.SOUL_SAND, ExemptType.SLIME, ExemptType.COMBO_MODE, ExemptType.FLIGHT, ExemptType.FULLY_STUCK, ExemptType.PARTIALLY_STUCK, ExemptType.VEHICLE, ExemptType.MYTHIC_MOB, ExemptType.FIREBALL, ExemptType.SWEET_BERRIES, ExemptType.BUKKIT_VELOCITY, ExemptType.PLACED_WEB);
+                final boolean exempt = this.isExempt(ExemptType.COLLIDING_VERTICALLY, ExemptType.LIQUID, ExemptType.GLIDING, ExemptType.FROZEN, ExemptType.CHUNK, ExemptType.ENDER_PEARL, ExemptType.WEB, ExemptType.VOID, ExemptType.SLOW_FALLING, ExemptType.ENDER_PEARL, ExemptType.TRAPDOOR, ExemptType.SOUL_SAND, ExemptType.SLIME, ExemptType.COMBO_MODE, ExemptType.FLIGHT, ExemptType.FULLY_STUCK, ExemptType.PARTIALLY_STUCK, ExemptType.VEHICLE, ExemptType.MYTHIC_MOB, ExemptType.FIREBALL, ExemptType.SWEET_BERRIES, ExemptType.BUKKIT_VELOCITY, ExemptType.PLACED_WEB);
                 double minRatio = 0.999;
                 if (this.isExempt(ExemptType.COLLIDING_HORIZONTALLY)) {
                     minRatio -= 0.1;
@@ -43,7 +43,7 @@ public class VelocityA extends AbstractCheck
                     data.getPositionProcessor().Setbackandblock();
                     data.getPositionProcessor().Setbackandblock();
                     if (this.increaseBuffer() > this.MAX_BUFFER) {
-                        this.fail("tick=1 percent=" + ratio * 100.0 + "% deltaY=" + deltaY + " velocity=" + velocityY);
+                        this.fail("tick=" + ticksSinceVelocity  +" percent=" + ratio * 100.0 + "% deltaY=" + deltaY + " velocity=" + velocityY);
                         data.getPositionProcessor().Setbackandblock();
                         data.getPositionProcessor().Setbackandblock();
                     }
