@@ -58,6 +58,16 @@ public class PacketManagercan {
                         }
                     }
                 }
+                if (e.getPacketType() == PacketType.Play.Client.POSITION) {
+                    if (data.getPositionProcessor().flagdata) {
+                        PacketContainer packetContainer = e.getPacket();
+                        //EnumWrappers.PlayerAction action = packetContainer.getPlayerActions().read(0);
+                        //if (action == EnumWrappers.PlayerAction.START_FALL_FLYING)  {
+                            e.setCancelled(true);
+                            e.setCancelled(true);
+                       // }
+                    }
+                }
                 /*if (e.getPacketType() == PacketType.Play.Client.USE_ITEM) {
                     if (blockitemuse.containsKey(playerId)) {
                         e.setCancelled(true);
