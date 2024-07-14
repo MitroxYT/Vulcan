@@ -370,6 +370,7 @@ public final class Config
     public static double GHOST_BLOCK_MIN_TPS;
     private static final String fileName = "config";
     private static CommentedConfiguration config;
+    public static boolean NOSLOWSWAPSLOT;
     private static File file;
     
     public static void save() {
@@ -570,6 +571,7 @@ public final class Config
             Config.SPEED_B_MIN_DIFFERENCE = getDouble("checks.movement.speed.b.min-difference");
             Config.SPEED_C_MIN_DIFFERENCE = getDouble("checks.movement.speed.c.min-difference");
             Config.Noslow = getDouble("checks.movement.noslow.e.min-difference");
+            Config.NOSLOWSWAPSLOT = getBoolean("checks.movement.noslow.e.slotswap");
             Config.SPEED_D_MIN_DIFFERENCE = getDouble("checks.movement.speed.d.min-difference");
             Config.FLIGHT_A_IGNORE_GHOST_BLOCKS = getBoolean("checks.movement.flight.a.ignore-ghost-blocks");
             Config.FLIGHT_C_IGNORE_GHOST_BLOCKS = getBoolean("checks.movement.flight.c.ignore-ghost-blocks");

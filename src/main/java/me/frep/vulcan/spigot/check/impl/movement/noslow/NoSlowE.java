@@ -1,6 +1,7 @@
 package me.frep.vulcan.spigot.check.impl.movement.noslow;
 
 import io.github.retrooper.packetevents.packetwrappers.play.in.blockdig.WrappedPacketInBlockDig;
+import io.github.retrooper.packetevents.packetwrappers.play.out.helditemslot.WrappedPacketOutHeldItemSlot;
 import me.frep.vulcan.spigot.data.processor.VelocityProcessor;
 import me.frep.vulcan.spigot.config.Config;
 import me.frep.vulcan.spigot.util.MathUtil;
@@ -11,8 +12,13 @@ import me.frep.vulcan.spigot.packet.Packet;
 import me.frep.vulcan.spigot.data.PlayerData;
 import me.frep.vulcan.spigot.check.api.CheckInfo;
 import me.frep.vulcan.spigot.check.AbstractCheck;
+import org.bukkit.entity.Player;
 
-@CheckInfo(name = "No Slow", type = 'E', complexType = "Air", description = "Moving too quickly while using item.")
+import java.util.concurrent.ThreadLocalRandom;
+
+import static me.frep.vulcan.spigot.util.PlayerUtil.sendPacket;
+
+@CheckInfo(name = "No Slow", type = 'E', complexType = "Noslow", description = "Moving too quickly while using item.")
 public class NoSlowE extends AbstractCheck
 {
     public NoSlowE(final PlayerData data) {
@@ -428,12 +434,22 @@ public class NoSlowE extends AbstractCheck
             if (this.data.getPlayer().isHandRaised()) {
                 maxSpeed -= 0.09;
             }
+            else if (this.data.getPlayer().isHandRaised() && this.data.getActionProcessor().getSpeedAmplifier() >= 1) {
+                maxSpeed -= 0.7;
+            }
             final double difference = deltaXZ - maxSpeed;
             final boolean exempt = this.isExempt(ExemptType.FLIGHT, ExemptType.JOINED, ExemptType.CREATIVE, ExemptType.SHULKER, ExemptType.SHULKER_BOX, ExemptType.GLIDING, ExemptType.DOLPHINS_GRACE, ExemptType.ATTRIBUTE_MODIFIER,  ExemptType.TELEPORT, ExemptType.ILLEGAL_BLOCK, ExemptType.GLIDING, ExemptType.CHUNK, ExemptType.RIPTIDE, ExemptType.VEHICLE, ExemptType.BOAT, ExemptType.FISHING_ROD, /*ExemptType.ELYTRA,*/ ExemptType.ENTITY_CRAM_FIX, ExemptType.DEATH, ExemptType.SLEEPING, ExemptType.ENDER_PEARL, ExemptType.FROZEN, ExemptType.CHORUS_FRUIT, ExemptType.SPECTATOR, ExemptType.WORLD_CHANGE, /*ExemptType.ATTRIBUTE_MODIFIER,*/ ExemptType.ANVIL, ExemptType.CANCELLED_MOVE);
             final boolean invalid = difference > Config.Noslow;
             if (invalid && !exempt) {
                 if (this.increaseBuffer() > this.MAX_BUFFER || (difference > 0.5 && difference < 100.0 && !this.isExempt(ExemptType.SERVER_POSITION, ExemptType.CHORUS_FRUIT))) {
                     this.fail("speed=" + deltaXZ + " max=" + maxSpeed + " diff=" + difference + " ticks=" + groundTicks + " deltaY=" + deltaY);
+                    if (Config.NOSLOWSWAPSLOT) {
+                            final int random = ThreadLocalRandom.current().nextInt(8);
+                            sendPacket(this.data.getPlayer(), new WrappedPacketOutHeldItemSlot(random));
+                            final int random1 = ThreadLocalRandom.current().nextInt(8);
+                            sendPacket(this.data.getPlayer(), new WrappedPacketOutHeldItemSlot(random1));
+
+                    }
                 }
             }
             else {
