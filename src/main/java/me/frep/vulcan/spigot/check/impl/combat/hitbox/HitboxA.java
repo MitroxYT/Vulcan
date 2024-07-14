@@ -14,6 +14,7 @@ import me.frep.vulcan.spigot.packet.Packet;
 import me.frep.vulcan.spigot.data.PlayerData;
 import me.frep.vulcan.spigot.check.api.CheckInfo;
 import me.frep.vulcan.spigot.check.AbstractCheck;
+import ru.nik.Events.PacketBlocker;
 
 @CheckInfo(name = "Hitbox", type = 'A', complexType = "History", description = "Attacked while not looking at target.")
 public class HitboxA extends AbstractCheck
@@ -41,7 +42,7 @@ public class HitboxA extends AbstractCheck
                 final double x = this.data.getPositionProcessor().getX();
                 final double z = this.data.getPositionProcessor().getZ();
                 final Vector origin = new Vector(x, 0.0, z);
-                final double angle = this.data.getCombatProcessor().getTargetLocations().stream().filter(pair -> Math.abs(ticks - pair.getY() - pingTicks) < 7).mapToDouble(pair -> {
+                final double angle = this.data.getCombatProcessor().getTargetLocations().stream().filter(pair -> Math.abs(ticks - pair.getY() - pingTicks) < 2).mapToDouble(pair -> {
                     final Vector targetLocation = pair.getX().toVector().setY(0.0);
                     final Vector direction = targetLocation.clone().subtract(origin);
                     final Vector target = this.getDirection(this.data.getRotationProcessor().getYaw(), this.data.getRotationProcessor().getPitch()).setY(0.0);
@@ -66,6 +67,9 @@ public class HitboxA extends AbstractCheck
                     if (angle > maxAngle && distance > 1.5 && distance < 10.0 && !exempt && !targetExempt) {
                         if (this.increaseBuffer() > this.MAX_BUFFER) {
                             this.fail("angle=" + angle + " distance=" + distance + " dYaw=" + deltaYaw);
+                            if (!data.getPlayer().hasPermission("vulcan.bypass.cancel.hba")) {
+                                PacketBlocker.blockdamage(data.getPlayer());
+                            }
                         }
                     }
                     else {

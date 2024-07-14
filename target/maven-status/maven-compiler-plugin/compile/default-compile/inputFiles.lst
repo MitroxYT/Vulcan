@@ -44,6 +44,7 @@ C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\aim\AimE.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\aim\AimK.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\util\TimeUtil.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\movement\noslow\NoSlowE.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\movement\entityflight\EntityFlightA.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\util\nms\MathHelper.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\api\event\VulcanJudgementDayStartEvent.java
@@ -78,6 +79,7 @@ C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\Vulcan.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\data\PlayerData.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\movement\step\StepC.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\killaura\KillAuraX.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\aim\AimG.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\command\tab\VulcanTabCompleter.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\inventory\InventoryA.java
@@ -98,10 +100,13 @@ C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\aim\AimR.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\data\processor\ConnectionProcessor.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\movement\noslow\NoSlowC.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\killaura\KillAuraM.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\velocity\VelocityA.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\data\processor\PositionProcessor.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\api\event\VulcanJudgementDayEndEvent.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\badpackets\BadPacketsH.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\bukkit\BlockMove.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\util\NPC\NPCManager.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\autoclicker\AutoClickerQ.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\invalid\InvalidJ.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\killaura\KillAuraB.java
@@ -115,7 +120,9 @@ C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\badpackets\BadPacketsJ.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\gui\manager\GUIManager.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\aim\AimP.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\util\BlockDamageUtil.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\scaffold\ScaffoldG.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\movement\sprint\SprintB.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\scaffold\ScaffoldA.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\movement\elytra\ElytraI.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\badpackets\BadPacketsQ.java
@@ -124,6 +131,7 @@ C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\badpackets\BadPacketsD.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\ghosthand\GhostHandA.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\movement\strafe\StrafeA.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\util\Timunits.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\event\EventProcessor.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\data\processor\ActionProcessor.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\invalid\InvalidF.java
@@ -238,6 +246,7 @@ C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\killaura\KillAuraA.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\util\nms\Vec3i.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\badpackets\BadPacketsG.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\PacketManagercan.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\badpackets\BadPacketsT.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\api\data\IPlayerData.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\movement\elytra\ElytraL.java
@@ -275,6 +284,7 @@ C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\reach\ReachB.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\exempt\ExemptProcessor.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\badpackets\BadPacketsK.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\Freecam\FreeCamA.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\data\manager\PlayerDataManager.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\aim\AimD.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\movement\flight\FlightA.java
@@ -296,6 +306,8 @@ C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\autoclicker\AutoClickerA.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\exempt\type\ExemptType.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\scaffold\ScaffoldM.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\killaura\KillAuraU.java
+C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\CancelPacketManager.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\combat\killaura\KillAuraL.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\movement\vclip\VClipA.java
 C:\Users\timur\Desktop\Vulcan 2.6.7 Source (fixed)\Vulcan\src\main\java\me\frep\vulcan\spigot\check\impl\player\baritone\BaritoneB.java

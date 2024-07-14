@@ -36,6 +36,8 @@ import me.frep.vulcan.spigot.config.Config;
 import java.util.HashSet;
 import java.text.DecimalFormat;
 import org.bukkit.entity.Player;
+import ru.nik.Events.PacketBlocker;
+
 import java.util.Set;
 
 public class AlertManager
@@ -143,7 +145,8 @@ public class AlertManager
                 }
             }
             else if (!data.getPlayer().hasPermission("vulcan.bypass.setback." + check.getClassName().toLowerCase())) {
-                data.getPositionProcessor().setback();
+                //data.getPositionProcessor().setback();
+                data.getPositionProcessor().packetflag();
             }
         }
         if (check.getCategory().equals("movement")) {

@@ -4,16 +4,11 @@ import io.github.retrooper.packetevents.packetwrappers.play.in.pong.WrappedPacke
 import io.github.retrooper.packetevents.packetwrappers.play.in.transaction.WrappedPacketInTransaction;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
-import me.frep.vulcan.spigot.bukkit.BlockMove;
 import me.frep.vulcan.spigot.util.*;
 import org.bukkit.event.player.PlayerTeleportEvent;
-import org.bukkit.plugin.Plugin;
-import io.github.retrooper.packetevents.packetwrappers.api.SendableWrapper;
 import io.github.retrooper.packetevents.packetwrappers.play.out.blockchange.WrappedPacketOutBlockChange;
-import org.bukkit.event.Event;
 import org.bukkit.Bukkit;
 import me.frep.vulcan.api.event.VulcanGhostBlockEvent;
 import me.frep.vulcan.spigot.Vulcan;
@@ -45,6 +40,7 @@ import static me.frep.vulcan.spigot.bukkit.BlockMove.Flag;
 
 public class PositionProcessor
 {
+    public static boolean flagdata;
     private final PlayerData data;
     private boolean nearFence;
     private boolean nearLiquid;
@@ -1410,6 +1406,12 @@ public class PositionProcessor
             }
         }}
     }
+    public void packetflag() {
+        Bukkit.getScheduler().runTask(Vulcan.INSTANCE.getPlugin(), () -> this.data.getPlayer().teleport(new Location(this.world, this.setbackX, this.setbackY, this.setbackZ, this.data.getRotationProcessor().getYaw(), this.data.getRotationProcessor().getPitch()), PlayerTeleportEvent.TeleportCause.UNKNOWN));
+
+        this.sinceSetbackTicks = 0;
+        data.getPositionProcessor().flagdata = true;
+    }
     public void setback() {
         if (this.y < this.setbackY && Config.SETBACK_LOWER_POSITION) {
             return;
@@ -1417,7 +1419,6 @@ public class PositionProcessor
         this.sinceSetbackTicks = 0;
         Bukkit.getScheduler().runTask(Vulcan.INSTANCE.getPlugin(), () -> this.data.getPlayer().teleport(new Location(this.world, this.setbackX, this.setbackY, this.setbackZ, this.data.getRotationProcessor().getYaw(), this.data.getRotationProcessor().getPitch()), PlayerTeleportEvent.TeleportCause.UNKNOWN));
     }
-    
     public void handleUnloadedChunk() {
         if (!Config.UNLOADED_CHUNK_SETBACK) {
             return;
@@ -3497,5 +3498,9 @@ public class PositionProcessor
     
     public void setBlockBelow3Modern(final Material blockBelow3Modern) {
         this.blockBelow3Modern = blockBelow3Modern;
+    }
+
+    public void reset() {
+        this.flagdata = false;
     }
 }

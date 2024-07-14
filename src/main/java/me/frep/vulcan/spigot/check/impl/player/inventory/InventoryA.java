@@ -35,7 +35,7 @@ public class InventoryA extends AbstractCheck
                 }
             //}
             //else {
-                this.decayBuffer();
+                //this.decayBuffer();
             //}
         }
     }

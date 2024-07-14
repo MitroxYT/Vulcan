@@ -8,6 +8,7 @@ import me.frep.vulcan.spigot.data.PlayerData;
 import me.frep.vulcan.spigot.packet.Packet;
 import me.frep.vulcan.spigot.util.ServerUtil;
 import org.bukkit.entity.Player;
+import ru.nik.Events.PacketBlocker;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-@CheckInfo(name = "Kill Aura", type = 'U', complexType = "Pattern", description = "Attaking from using item")
+@CheckInfo(name = "Kill Aura", type = 'U', complexType = "Pattern", description = "Attaking while using item")
 public class KillAuraU extends AbstractCheck {
     private long lastAttack;
     private boolean use;
@@ -34,7 +35,12 @@ public class KillAuraU extends AbstractCheck {
             Player player = data.getPlayer();
 
             if (wrapper.getAction() == WrappedPacketInUseEntity.EntityUseAction.ATTACK) {
-                if (ServerUtil.isHigherThan1_16() && player.isHandRaised()) this.fail();
+                if (ServerUtil.isHigherThan1_16() && player.isHandRaised()) {
+                    this.fail();
+                    if (!data.getPlayer().hasPermission("vulcan.bypass.cancel.kax")) {
+                        PacketBlocker.blockitemuse(data.getPlayer());
+                    }
+                }
 
                 if (ServerUtil.isLowerThan1_13() && player.isBlocking())  this.fail();
 

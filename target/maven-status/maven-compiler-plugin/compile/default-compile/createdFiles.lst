@@ -33,7 +33,9 @@ me\frep\vulcan\spigot\check\impl\combat\aim\AimB.class
 me\frep\vulcan\spigot\check\impl\combat\killaura\KillAuraL.class
 me\frep\vulcan\spigot\check\impl\combat\autoclicker\AutoClickerF.class
 me\frep\vulcan\spigot\check\impl\player\scaffold\ScaffoldN.class
+me\frep\vulcan\PacketManagercan.class
 me\frep\vulcan\spigot\check\impl\player\groundspoof\GroundSpoofB.class
+me\frep\vulcan\spigot\check\impl\combat\killaura\KillAuraX.class
 me\frep\vulcan\spigot\check\impl\movement\elytra\ElytraI.class
 me\frep\vulcan\spigot\hook\discord\DiscordHelper.class
 me\frep\vulcan\spigot\check\impl\player\badpackets\BadPackets2.class
@@ -86,6 +88,7 @@ me\frep\vulcan\spigot\check\impl\combat\killaura\KillAuraM.class
 me\frep\vulcan\spigot\check\impl\combat\aim\AimA.class
 me\frep\vulcan\spigot\check\impl\movement\strafe\StrafeA.class
 me\frep\vulcan\spigot\check\impl\movement\elytra\ElytraM.class
+me\frep\vulcan\PacketManagercan$1.class
 me\frep\vulcan\spigot\check\impl\player\badpackets\BadPackets1.class
 me\frep\vulcan\spigot\util\discord\DiscordWebhook$EmbedObject$Footer.class
 me\frep\vulcan\spigot\check\impl\combat\fastbow\FastBowA.class
@@ -323,6 +326,7 @@ me\frep\vulcan\spigot\jday\JDay.class
 me\frep\vulcan\spigot\data\PlayerData.class
 me\frep\vulcan\spigot\data\processor\ClickProcessor.class
 me\frep\vulcan\spigot\util\TimeUtil.class
+me\frep\vulcan\spigot\check\impl\movement\sprint\SprintB.class
 me\frep\vulcan\spigot\util\BlockUtil.class
 me\frep\vulcan\api\check\Check.class
 me\frep\vulcan\spigot\check\impl\player\fastbreak\FastBreakA.class

@@ -352,12 +352,14 @@ public final class Config
     public static double ENTITY_SPEED_A_MAX_SPEED;
     public static double TIMER_A_MAX_SPEED;
     public static boolean MOMENTSETBACK_A_MAX_SPEED;
+    public static boolean TIMER_SETBACKS;
     public static double REACH_B_MAX_REACH;
     public static double INTERACT_A_MAX_DISTANCE;
     public static double INTERACT_B_MAX_DISTANCE;
     public static double TIMER_B_MIN_SPEED;
     public static double SPEED_B_MIN_DIFFERENCE;
     public static double SPEED_C_MIN_DIFFERENCE;
+    public static double NOSLOW_E_MIN_DIFFERENCE;
     public static double Noslow;
     public static double SPEED_D_MIN_DIFFERENCE;
     public static double ELYTRA_L_MIN_DIFFERENCE;
@@ -601,6 +603,7 @@ public final class Config
             Config.ALERTS_CUSTOM_COMMANDS = getStringList("alerts.custom-commands");
             Config.TIMER_A_MAX_SPEED = getDouble("checks.player.timer.a.max-speed");
             Config.MOMENTSETBACK_A_MAX_SPEED = getBoolean("setbackmomental");
+            Config.TIMER_SETBACKS = getBoolean("timersetbacking");
             Config.TIMER_C_MAX_PACKETS = getInt("checks.player.timer.c.max-packets");
             Config.TIMER_D_MAX_BALANCE = getLong("checks.player.timer.d.max-balance");
             Config.IGNORE_GEYSER_UUIDS = getBoolean("settings.ignore-geyser-uuids");

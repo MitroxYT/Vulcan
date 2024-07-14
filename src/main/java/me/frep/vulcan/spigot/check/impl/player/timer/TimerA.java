@@ -18,7 +18,7 @@ public class TimerA extends AbstractCheck
     
     public TimerA(final PlayerData data) {
         super(data);
-        this.samples = new EvictingList<Long>(40);
+        this.samples = new EvictingList<Long>(30);
     }
     
     @Override
@@ -39,9 +39,9 @@ public class TimerA extends AbstractCheck
                 if (speed >= Config.TIMER_A_MAX_SPEED) {
                     if (this.increaseBuffer() > this.MAX_BUFFER) {
                         this.fail("speed=" + scaled + "% delay=" + delay);
-                    }
-                    if(Config.MOMENTSETBACK_A_MAX_SPEED) {
-                        data.getPositionProcessor().monentsetback();
+                        if (Config.TIMER_SETBACKS) {
+                            data.getPositionProcessor().packetflag();
+                        }
                     }
                 }
                 else {

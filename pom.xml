@@ -160,9 +160,22 @@
             <systemPath>${project.basedir}\libs\DiscordBotAPI-1.1.0.jar</systemPath>
         </dependency>
         <dependency>
+            <groupId>Api</groupId>
+            <artifactId>libs</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}\libs\Apo.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.comphenix.protocol</groupId>
+            <artifactId>ProtocolLib</artifactId>
+            <version>5.1.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

@@ -39,7 +39,7 @@ public class StrafeA extends AbstractCheck
             final boolean exempt = this.isExempt(ExemptType.TELEPORT, ExemptType.PARTIALLY_STUCK, ExemptType.BUKKIT_VELOCITY, ExemptType.DEATH, ExemptType.JOINED, ExemptType.WORLD_CHANGE, ExemptType.FLIGHT, ExemptType.FULLY_STUCK, ExemptType.GLIDING, ExemptType.CREATIVE, ExemptType.SPECTATOR, ExemptType.SOUL_SAND, ExemptType.VEHICLE, ExemptType.ENTITY_COLLISION, ExemptType.DEPTH_STRIDER, ExemptType.FROZEN, ExemptType.LIQUID, ExemptType.DOLPHINS_GRACE, ExemptType.RIPTIDE, ExemptType.SWIMMING, ExemptType.CLIMBABLE, ExemptType.ENDER_PEARL, ExemptType.FIREBALL, ExemptType.CANCELLED_MOVE);
             final boolean explosion = this.data.getActionProcessor().getSinceExplosionDamageTicks() < 10;
             final boolean bowBoost = this.data.getActionProcessor().getSinceBowBoostTicks() < 30;
-            final boolean invalid = difference > 0.0075 && deltaXZ > 0.25 && airTicks > 3;
+            final boolean invalid = difference > 0.0055 && deltaXZ > 0.20 && airTicks > 2;
             if (invalid && !exempt && !piston && !velocity && !explosion && !bowBoost) {
                 if (this.increaseBuffer() > this.MAX_BUFFER) {
                     this.fail("difference=" + difference + " deltaXZ=" + deltaXZ);

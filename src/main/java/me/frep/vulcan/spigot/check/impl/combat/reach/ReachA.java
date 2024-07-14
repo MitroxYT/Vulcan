@@ -15,6 +15,7 @@ import me.frep.vulcan.spigot.packet.Packet;
 import me.frep.vulcan.spigot.data.PlayerData;
 import me.frep.vulcan.spigot.check.api.CheckInfo;
 import me.frep.vulcan.spigot.check.AbstractCheck;
+import ru.nik.Events.PacketBlocker;
 
 import java.util.UUID;
 
@@ -68,7 +69,9 @@ public class ReachA extends AbstractCheck
                     if (this.increaseBuffer() > this.MAX_BUFFER) {
                         this.fail("distance=" + distance);
                         data.getPositionProcessor().monentsetback();
-                        UUID e = data.getPlayer().getUniqueId();
+                        if (!data.getPlayer().hasPermission("vulcan.bypass.cancel.raa")) {
+                            PacketBlocker.blockdamage(data.getPlayer());
+                        }
                     }
                 }
                 else {
