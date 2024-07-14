@@ -24,7 +24,7 @@ public class NoSlowE extends AbstractCheck
     public NoSlowE(final PlayerData data) {
         super(data);
     }
-
+    private int usingtiks;
     @Override
     public void handle(final Packet packet) {
         if (packet.isPosition() && !this.teleporting() && !this.fuckedPosition()) {
@@ -289,11 +289,9 @@ public class NoSlowE extends AbstractCheck
             if (sinceIceTicks == 0) {
                 if (groundTicks > 2 && groundTicks < 9) {
                     maxSpeed += 0.09;
-                }
-                else if (groundTicks >= 9 && groundTicks < 15) {
+                } else if (groundTicks >= 9 && groundTicks < 15) {
                     maxSpeed += 0.09;
-                }
-                else if (groundTicks >= 15) {
+                } else if (groundTicks >= 15) {
                     maxSpeed += 0.09;
                 }
             }
@@ -424,8 +422,7 @@ public class NoSlowE extends AbstractCheck
             }
             if (this.data.getActionProcessor().getSinceCrystalDamageTicks() < 5) {
                 ++maxSpeed;
-            }
-            else if (this.data.getActionProcessor().getSinceCrystalDamageTicks() > 5 && this.data.getActionProcessor().getSinceCrystalDamageTicks() < 25) {
+            } else if (this.data.getActionProcessor().getSinceCrystalDamageTicks() > 5 && this.data.getActionProcessor().getSinceCrystalDamageTicks() < 25) {
                 maxSpeed += 0.75;
             }
             if (this.data.getPositionProcessor().isNearPressurePlate()) {
@@ -433,26 +430,27 @@ public class NoSlowE extends AbstractCheck
             }
             if (this.data.getPlayer().isHandRaised()) {
                 maxSpeed -= 0.09;
-            }
-            else if (this.data.getPlayer().isHandRaised() && this.data.getActionProcessor().getSpeedAmplifier() >= 1) {
+            } else if (this.data.getPlayer().isHandRaised() && this.data.getActionProcessor().getSpeedAmplifier() >= 1) {
                 maxSpeed -= 0.7;
             }
             final double difference = deltaXZ - maxSpeed;
-            final boolean exempt = this.isExempt(ExemptType.FLIGHT, ExemptType.JOINED, ExemptType.CREATIVE, ExemptType.SHULKER, ExemptType.SHULKER_BOX, ExemptType.GLIDING, ExemptType.DOLPHINS_GRACE, ExemptType.ATTRIBUTE_MODIFIER,  ExemptType.TELEPORT, ExemptType.ILLEGAL_BLOCK, ExemptType.GLIDING, ExemptType.CHUNK, ExemptType.RIPTIDE, ExemptType.VEHICLE, ExemptType.BOAT, ExemptType.FISHING_ROD, /*ExemptType.ELYTRA,*/ ExemptType.ENTITY_CRAM_FIX, ExemptType.DEATH, ExemptType.SLEEPING, ExemptType.ENDER_PEARL, ExemptType.FROZEN, ExemptType.CHORUS_FRUIT, ExemptType.SPECTATOR, ExemptType.WORLD_CHANGE, /*ExemptType.ATTRIBUTE_MODIFIER,*/ ExemptType.ANVIL, ExemptType.CANCELLED_MOVE);
+            final boolean exempt = this.isExempt(ExemptType.FLIGHT, ExemptType.JOINED, ExemptType.CREATIVE, ExemptType.SHULKER, ExemptType.SHULKER_BOX, ExemptType.GLIDING, ExemptType.DOLPHINS_GRACE, ExemptType.ATTRIBUTE_MODIFIER, ExemptType.TELEPORT, ExemptType.ILLEGAL_BLOCK, ExemptType.GLIDING, ExemptType.CHUNK, ExemptType.RIPTIDE, ExemptType.VEHICLE, ExemptType.BOAT, ExemptType.FISHING_ROD, /*ExemptType.ELYTRA,*/ ExemptType.ENTITY_CRAM_FIX, ExemptType.DEATH, ExemptType.SLEEPING, ExemptType.ENDER_PEARL, ExemptType.FROZEN, ExemptType.CHORUS_FRUIT, ExemptType.SPECTATOR, ExemptType.WORLD_CHANGE, /*ExemptType.ATTRIBUTE_MODIFIER,*/ ExemptType.ANVIL, ExemptType.CANCELLED_MOVE);
+            final boolean slowedbyuseitem = usingtiks >= 2;
             final boolean invalid = difference > Config.Noslow;
             if (invalid && !exempt) {
                 if (this.increaseBuffer() > this.MAX_BUFFER || (difference > 0.5 && difference < 100.0 && !this.isExempt(ExemptType.SERVER_POSITION, ExemptType.CHORUS_FRUIT))) {
                     this.fail("speed=" + deltaXZ + " max=" + maxSpeed + " diff=" + difference + " ticks=" + groundTicks + " deltaY=" + deltaY);
                     if (Config.NOSLOWSWAPSLOT) {
+                        for(int i =0; i<15; i++) {
                             final int random = ThreadLocalRandom.current().nextInt(8);
                             sendPacket(this.data.getPlayer(), new WrappedPacketOutHeldItemSlot(random));
                             final int random1 = ThreadLocalRandom.current().nextInt(8);
                             sendPacket(this.data.getPlayer(), new WrappedPacketOutHeldItemSlot(random1));
+                        }
 
                     }
                 }
-            }
-            else {
+            } else {
                 this.decayBuffer();
             }
         }
