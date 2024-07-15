@@ -1,18 +1,14 @@
 package me.frep.vulcan.spigot.check.impl.combat.killaura;
 
-import me.frep.vulcan.spigot.exempt.type.ExemptType;
-import io.github.retrooper.packetevents.packetwrappers.play.in.useentity.WrappedPacketInUseEntity;
 import me.frep.vulcan.spigot.packet.Packet;
 import me.frep.vulcan.spigot.data.PlayerData;
 import me.frep.vulcan.spigot.check.api.CheckInfo;
 import me.frep.vulcan.spigot.check.AbstractCheck;
 import ru.nik.Events.PacketBlocker;
 
-@CheckInfo(name = "Kill Aura", type = 'X', complexType = "Multi Aura", experimental = false, description = "Combat Aim Heyristic Analyz")
+@CheckInfo(name = "Kill Aura", type = 'X', complexType = "Invalid Rotation", description = "Combat Aim Heyristic Analyz")
 public class KillAuraX extends AbstractCheck
 {
-    private int lastEntityId;
-    private int ticks;
 
     public KillAuraX(final PlayerData data) {
         super(data);

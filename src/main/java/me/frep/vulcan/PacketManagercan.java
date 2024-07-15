@@ -63,8 +63,6 @@ public class PacketManagercan {
                         PacketContainer packetContainer = e.getPacket();
                         //EnumWrappers.PlayerAction action = packetContainer.getPlayerActions().read(0);
                         //if (action == EnumWrappers.PlayerAction.START_FALL_FLYING)  {
-                            e.setCancelled(true);
-                            e.setCancelled(true);
                        // }
                     }
                 }

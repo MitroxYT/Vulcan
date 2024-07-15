@@ -48,6 +48,7 @@ public class FastBreakA extends AbstractCheck
             if (difference < Config.FASTBREAK_A_MIN_DIFFERENCE) {
                 if (this.increaseBuffer() > this.MAX_BUFFER) {
                     this.fail("block=" + event2.getBlock().getType() + " diff=" + difference + " tool=" + this.data.getPlayer().getItemInHand().getType());
+                    event2.setCancelled(true);
                 }
             }
             else {
