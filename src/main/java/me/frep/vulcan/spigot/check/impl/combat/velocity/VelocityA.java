@@ -16,7 +16,7 @@ public class VelocityA extends AbstractCheck
     
     @Override
     public void handle(final Packet packet) {
-        if (packet.isFlying()) {
+        if (packet.isMove()) {
             final boolean push = this.data.getActionProcessor().getSincePushTicks() < 20;
             if (push || this.data.getPositionProcessor().isNearBorder()) {
                 return;

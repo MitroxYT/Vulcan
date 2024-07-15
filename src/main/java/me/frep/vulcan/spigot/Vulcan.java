@@ -103,6 +103,7 @@ public enum Vulcan
     private final ExecutorService logExecutor;
     private final ReflectionManager reflectionManager;
     private final boolean bypass = true;
+    public static boolean isAlicaApi;
     
     private Vulcan() {
         this.spigot = ID.spigot();
@@ -156,6 +157,10 @@ public enum Vulcan
             this.libsDisguises = true;
             this.log("LibsDisguises found. Enabling hook!");
         }
+        if (this.pluginManager.getPlugin("AliceApi") != null) {
+            this.isAlicaApi = true;
+        }
+        this.log("Alice Api найдена включаю пакетные флаги у античита");
         if (this.pluginManager.getPlugin("MythicMobs") != null) {
             final Plugin mythicMobsPlugin = Bukkit.getPluginManager().getPlugin("MythicMobs");
             this.mythicMobsLatest = mythicMobsPlugin.getDescription().getVersion().startsWith("5");

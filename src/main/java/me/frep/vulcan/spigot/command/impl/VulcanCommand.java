@@ -39,6 +39,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.CommandExecutor;
 import me.frep.vulcan.spigot.command.CommandManager;
+import ru.nik.Events.PunishEvent;
 
 public class VulcanCommand extends CommandManager implements CommandExecutor
 {
@@ -507,6 +508,24 @@ public class VulcanCommand extends CommandManager implements CommandExecutor
                         return true;
                     }
                     PlayerUtil.shuffleHotbar(player);
+                    this.sendMessage(sender, Config.SHUFFLED_HOTBAR.replaceAll("%player%", name));
+                }
+            }
+        }
+        else if (args[0].equalsIgnoreCase("punish")) {
+            if (sender.hasPermission("vulcan.punish")) {
+                if (args.length == 1) {
+                    this.sendMessage(sender, Config.SHUFFLE_COMMAND_SYNTAX);
+                }
+                else {
+                    final String name = args[1];
+                    final Player player = Bukkit.getPlayer(name);
+                    if (player == null) {
+                        this.sendMessage(sender, Config.INVALID_TARGET);
+                        return true;
+                    }
+                    //PlayerUtil.shuffleHotbar(player);
+                    PunishEvent.banlogic(player);
                     this.sendMessage(sender, Config.SHUFFLED_HOTBAR.replaceAll("%player%", name));
                 }
             }

@@ -39,7 +39,7 @@ public class ReachA extends AbstractCheck
             }
             this.attacking = true;
         }
-        else if (packet.isFlying() && this.attacking) {
+        else if (packet.isMove() && this.attacking) {
             //final WrappedPacketInUseEntity event = (WrappedPacketInUseEntity)packet.getRawPacket().getRawNMSPacket();
             final int ticks = Vulcan.INSTANCE.getTickManager().getTicks();
             final int pingTicks = MathUtil.getPingInTicks(this.data);
@@ -70,7 +70,9 @@ public class ReachA extends AbstractCheck
                         this.fail("distance=" + distance);
                         data.getPositionProcessor().monentsetback();
                         if (!data.getPlayer().hasPermission("vulcan.bypass.cancel.raa")) {
-                            PacketBlocker.blockdamage(data.getPlayer());
+                            if (Vulcan.isAlicaApi) {
+                                PacketBlocker.blockdamage(data.getPlayer());
+                            }
                         }
                     }
                 }

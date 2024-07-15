@@ -68,7 +68,9 @@ public class HitboxA extends AbstractCheck
                         if (this.increaseBuffer() > this.MAX_BUFFER) {
                             this.fail("angle=" + angle + " distance=" + distance + " dYaw=" + deltaYaw);
                             if (!data.getPlayer().hasPermission("vulcan.bypass.cancel.hba")) {
-                                PacketBlocker.blockdamage(data.getPlayer());
+                                if (Vulcan.isAlicaApi) {
+                                    PacketBlocker.blockdamage(data.getPlayer());
+                                }
                             }
                         }
                     }

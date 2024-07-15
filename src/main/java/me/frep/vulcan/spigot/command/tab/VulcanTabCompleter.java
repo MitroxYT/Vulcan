@@ -36,6 +36,7 @@ public class VulcanTabCompleter implements TabCompleter
             arguments.add("shuffle");
             arguments.add("top");
             arguments.add("blockdamage");
+            arguments.add("punish");
             return (List)StringUtil.copyPartialMatches(args[0], arguments, new ArrayList());
         }
         if (args.length == 2 && args[0].equalsIgnoreCase("disablecheck")) {

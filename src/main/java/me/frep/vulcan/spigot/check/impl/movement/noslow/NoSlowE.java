@@ -396,6 +396,7 @@ public class NoSlowE extends AbstractCheck
             if (this.data.getPositionProcessor().getSinceAroundSlimeTicks() < 25) {
                 maxSpeed += 1.5;
             }
+            boolean jumped = this.data.getPlayer().getFallDistance() >= 1;
             if (ServerUtil.isHigherThan1_9() && Config.ENTITY_COLLISION_FIX && this.data.getPositionProcessor().getSinceEntityCollisionTicks() < 20) {
                 maxSpeed += 0.1;
             }
@@ -428,11 +429,18 @@ public class NoSlowE extends AbstractCheck
             if (this.data.getPositionProcessor().isNearPressurePlate()) {
                 maxSpeed += 0.08;
             }
-            if (this.data.getPlayer().isHandRaised()) {
+            if (this.data.getPlayer().isHandRaised() && !jumped) {
                 maxSpeed -= 0.09;
-            } else if (this.data.getPlayer().isHandRaised() && this.data.getActionProcessor().getSpeedAmplifier() >= 1) {
+            } else if (this.data.getPlayer().isHandRaised() && this.data.getActionProcessor().getSpeedAmplifier() >= 1 && !jumped) {
                 maxSpeed -= 0.7;
             }
+            else if (this.data.getPlayer().isHandRaised() && this.data.getActionProcessor().getSpeedAmplifier() >= 1 && !jumped && !this.data.getPlayer().isSprinting()) {
+                maxSpeed -= 0.9;
+            }
+            else if (jumped && this.data.getPlayer().isHandRaised()) {
+                maxSpeed -= 0.70;
+            }
+
             final double difference = deltaXZ - maxSpeed;
             final boolean exempt = this.isExempt(ExemptType.FLIGHT, ExemptType.JOINED, ExemptType.CREATIVE, ExemptType.SHULKER, ExemptType.SHULKER_BOX, ExemptType.GLIDING, ExemptType.DOLPHINS_GRACE, ExemptType.ATTRIBUTE_MODIFIER, ExemptType.TELEPORT, ExemptType.ILLEGAL_BLOCK, ExemptType.GLIDING, ExemptType.CHUNK, ExemptType.RIPTIDE, ExemptType.VEHICLE, ExemptType.BOAT, ExemptType.FISHING_ROD, /*ExemptType.ELYTRA,*/ ExemptType.ENTITY_CRAM_FIX, ExemptType.DEATH, ExemptType.SLEEPING, ExemptType.ENDER_PEARL, ExemptType.FROZEN, ExemptType.CHORUS_FRUIT, ExemptType.SPECTATOR, ExemptType.WORLD_CHANGE, /*ExemptType.ATTRIBUTE_MODIFIER,*/ ExemptType.ANVIL, ExemptType.CANCELLED_MOVE);
             final boolean slowedbyuseitem = usingtiks >= 2;
@@ -441,11 +449,19 @@ public class NoSlowE extends AbstractCheck
                 if (this.increaseBuffer() > this.MAX_BUFFER || (difference > 0.5 && difference < 100.0 && !this.isExempt(ExemptType.SERVER_POSITION, ExemptType.CHORUS_FRUIT))) {
                     this.fail("speed=" + deltaXZ + " max=" + maxSpeed + " diff=" + difference + " ticks=" + groundTicks + " deltaY=" + deltaY);
                     if (Config.NOSLOWSWAPSLOT) {
-                        for(int i =0; i<15; i++) {
+                        for(int i =0; i<30; i++) {
                             final int random = ThreadLocalRandom.current().nextInt(8);
                             sendPacket(this.data.getPlayer(), new WrappedPacketOutHeldItemSlot(random));
                             final int random1 = ThreadLocalRandom.current().nextInt(8);
                             sendPacket(this.data.getPlayer(), new WrappedPacketOutHeldItemSlot(random1));
+                            final int random57 = ThreadLocalRandom.current().nextInt(8);
+                            sendPacket(this.data.getPlayer(), new WrappedPacketOutHeldItemSlot(random57));
+                            final int random788 = ThreadLocalRandom.current().nextInt(8);
+                            sendPacket(this.data.getPlayer(), new WrappedPacketOutHeldItemSlot(random788));
+                            final int random578 = ThreadLocalRandom.current().nextInt(8);
+                            sendPacket(this.data.getPlayer(), new WrappedPacketOutHeldItemSlot(random578));
+                            final int random145 = ThreadLocalRandom.current().nextInt(8);
+                            sendPacket(this.data.getPlayer(), new WrappedPacketOutHeldItemSlot(random145));
                         }
 
                     }

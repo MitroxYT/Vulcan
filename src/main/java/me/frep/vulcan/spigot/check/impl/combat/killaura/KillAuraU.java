@@ -2,6 +2,7 @@ package me.frep.vulcan.spigot.check.impl.combat.killaura;
 
 import com.google.common.collect.Lists;
 import io.github.retrooper.packetevents.packetwrappers.play.in.useentity.WrappedPacketInUseEntity;
+import me.frep.vulcan.spigot.Vulcan;
 import me.frep.vulcan.spigot.check.AbstractCheck;
 import me.frep.vulcan.spigot.check.api.CheckInfo;
 import me.frep.vulcan.spigot.data.PlayerData;
@@ -38,7 +39,9 @@ public class KillAuraU extends AbstractCheck {
                 if (ServerUtil.isHigherThan1_16() && player.isHandRaised()) {
                     this.fail();
                     if (!data.getPlayer().hasPermission("vulcan.bypass.cancel.kax")) {
-                        PacketBlocker.blockitemuse(data.getPlayer());
+                        if (Vulcan.isAlicaApi) {
+                            PacketBlocker.blockitemuse(data.getPlayer());
+                        }
                     }
                 }
 

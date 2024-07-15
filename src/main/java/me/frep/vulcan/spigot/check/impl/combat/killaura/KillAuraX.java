@@ -1,5 +1,6 @@
 package me.frep.vulcan.spigot.check.impl.combat.killaura;
 
+import me.frep.vulcan.spigot.Vulcan;
 import me.frep.vulcan.spigot.packet.Packet;
 import me.frep.vulcan.spigot.data.PlayerData;
 import me.frep.vulcan.spigot.check.api.CheckInfo;
@@ -23,7 +24,10 @@ public class KillAuraX extends AbstractCheck
                 if (this.increaseBuffer() > this.MAX_BUFFER) {
                     this.fail("YawAnalyz=" + deltaYaw);
                     if (!data.getPlayer().hasPermission("vulcan.bypass.cancel.kax")) {
-                        PacketBlocker.blockdamage(data.getPlayer());
+                        if (Vulcan.isAlicaApi) {
+
+                            PacketBlocker.blockdamage(data.getPlayer());
+                        }
                     }
                 }
             } else {

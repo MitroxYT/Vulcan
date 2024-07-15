@@ -26,6 +26,9 @@ public class Packet
     public boolean isFlying() {
         return this.isReceiving() && PacketType.Play.Client.Util.isInstanceOfFlying(this.packetId);
     }
+    public boolean isMove() {
+        return this.isReceiving() && PacketType.Play.Client.Util.isMoveofFlying(this.packetId);
+    }
     
     public boolean isUseEntity() {
         return this.isReceiving() && this.packetId == -100;
