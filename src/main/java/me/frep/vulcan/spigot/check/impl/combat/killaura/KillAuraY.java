@@ -1,17 +1,17 @@
-package me.frep.vulcan.spigot.check.impl.combat.aim;
+package me.frep.vulcan.spigot.check.impl.combat.killaura;
 
 import me.frep.vulcan.spigot.packet.Packet;
 import me.frep.vulcan.spigot.data.PlayerData;
 import me.frep.vulcan.spigot.check.api.CheckInfo;
 import me.frep.vulcan.spigot.check.AbstractCheck;
 
-@CheckInfo(name = "Aim", type = 'L', complexType = "Direction", description = "Switching directions too quickly.")
-public class AimL extends AbstractCheck
+@CheckInfo(name = "Kill Aura", type = 'Y', complexType = "Span", description = "Fast Head Rotation Snap?")
+public class KillAuraY extends AbstractCheck
 {
     private float lastDeltaPitch;
     private int ticksSinceSwitchedDirection;
     
-    public AimL(final PlayerData data) {
+    public KillAuraY(final PlayerData data) {
         super(data);
     }
     
@@ -30,7 +30,7 @@ public class AimL extends AbstractCheck
             final boolean invalid = this.ticksSinceSwitchedDirection == 0 && Math.abs(deltaPitch) > 5.0f;
             if (invalid) {
                 if (this.increaseBuffer() > this.MAX_BUFFER) {
-                    this.fail("deltaPitch=" + deltaPitch);
+                    this.fail("deltaPitch=" + deltaPitch + " tiks: " + ticksSinceSwitchedDirection);
                 }
             }
             else {

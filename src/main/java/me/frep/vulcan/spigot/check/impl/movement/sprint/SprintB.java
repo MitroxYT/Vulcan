@@ -1,7 +1,5 @@
 package me.frep.vulcan.spigot.check.impl.movement.sprint;
 
-import io.github.retrooper.packetevents.packetwrappers.play.in.entityaction.WrappedPacketInEntityAction;
-import io.github.retrooper.packetevents.packetwrappers.play.in.useentity.WrappedPacketInUseEntity;
 import me.frep.vulcan.spigot.check.AbstractCheck;
 import me.frep.vulcan.spigot.check.api.CheckInfo;
 import me.frep.vulcan.spigot.data.PlayerData;
